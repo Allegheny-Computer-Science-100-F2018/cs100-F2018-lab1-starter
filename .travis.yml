@@ -1,0 +1,51 @@
+# use Python 3.6 for GatorGrader and switch to Java
+dist: trusty
+sudo: required
+language: python
+python:
+  - '3.6'
+
+# ignore the virtualenv that Travis creates
+env:
+  global:
+    - PIPENV_VENV_IN_PROJECT=1
+    - PIPENV_IGNORE_VIRTUALENVS=1
+
+# use the Java language and require JDK 8
+before_install:
+- jdk_switcher use oraclejdk8
+
+# directly download the latest and cache-able version of Gradle
+before_script:
+  # download gradle as a zip file
+  - wget https://services.gradle.org/distributions/gradle-4.6-bin.zip
+  - unzip -d $HOME gradle-4.6-bin.zip
+  # delete the downloaded file
+  - rm -rf gradle-4.6-bin.zip
+  # add gradle bin to path at the beginning to ensure it overwrites old gradle
+  - export PATH="$HOME/gradle-4.6/bin:$PATH"
+
+# install the Markdown linting program called mdl
+before_install:
+- gem install mdl
+
+# cache to improve build speed
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.pip-cache/
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+# run checks on Java code through gradle and GatorGrader
+# run checks on Markdown writing through mdl through GatorGrader
+script:
+  # Java: see build.gradle
+  - gradle --version
+  - gradle clean check
+  - gradle build
+  - gradle run
+    # GatorGrader: see config/gatorgrader.yml
+  - gradle grade
