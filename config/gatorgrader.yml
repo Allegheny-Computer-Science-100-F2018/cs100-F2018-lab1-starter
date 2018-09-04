@@ -15,4 +15,4 @@ writing/reflection.md:
     --paragraphs 1
     --words 200
 --commits 10
---command "gradle -q --console plain run" --count 2
+--command "gradle -q --console plain run" --count 4
