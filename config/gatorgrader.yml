@@ -14,5 +14,5 @@ writing/reflection.md:
     mdl
     --paragraphs 1
     --words 200
---commits 10
+--commits 16
 --command "gradle -q --console plain run" --count 4
