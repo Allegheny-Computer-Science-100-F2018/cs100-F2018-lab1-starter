@@ -6,7 +6,7 @@
 
 // comment out gatorgradle if you want to use dev version
 plugins {
-    id "org.gatored.gatorgradle" version "0.2.0-141"
+    id "org.gatored.gatorgradle" version "0.2.3-171"
     id "java"
 }
 
