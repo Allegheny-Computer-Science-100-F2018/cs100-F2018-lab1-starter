@@ -136,6 +136,25 @@ BUILD SUCCESSFUL in 0s
 2 actionable tasks: 1 executed, 1 up-to-date
 ```
 
+## Checks
+
+Your submission must pass the following checks:
+
+* labone/DisplayOutput.java:
+  * Two single-line comments
+  * Two multiple-line comments
+  * Four uses of a `println(` statement
+  * One use of a `new Date(` statement
+  * Produces four lines of output
+
+* writing/reflection.md:
+  * Passes the Markdown linting tool
+  * Contains one contiguous paragraphs of text
+  * Contains one paragraph with at least 200 words
+
+* GitHub repository
+  * Contains five commits beyond the starting number
+
 ## Updates
 
 If the course instructor updates the provided material for this assignment and
