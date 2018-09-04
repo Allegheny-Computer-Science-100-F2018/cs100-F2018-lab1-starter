@@ -1,0 +1,18 @@
+---
+name: cmpsc-111-fall-2018-lab1
+break: false
+indent: 4
+---
+src/main:
+    java:
+        labone/DisplayOutput.java:
+            --single 2 --language Java
+            --multi 2 --language Java
+            --fragment "println(" --count 4
+            --fragment "new Date(" --count 1
+writing/reflection.md:
+    mdl
+    --paragraphs 1
+    --words 200
+--commits 10
+--command "gradle -q --console plain run" --count 2
