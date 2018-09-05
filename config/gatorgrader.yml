@@ -15,5 +15,5 @@ writing/reflection.md:
     proselint
     --paragraphs 1
     --words 200
---commits 21
+--commits 22
 --command "gradle -q --console plain run" --count 4
