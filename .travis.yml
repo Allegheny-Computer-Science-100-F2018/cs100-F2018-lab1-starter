@@ -1,9 +1,8 @@
-# use Python 3.6 for GatorGrader and switch to Java
+# use Java and non-root
 dist: trusty
-sudo: required
-language: python
-python:
-  - '3.6'
+sudo: false
+language: Java
+jdk: oraclejdk8
 
 # ignore the virtualenv that Travis creates
 env:
@@ -11,12 +10,9 @@ env:
     - PIPENV_VENV_IN_PROJECT=1
     - PIPENV_IGNORE_VIRTUALENVS=1
 
-# use the Java language and require JDK 8
+# install the Markdown linting program called mdl
 before_install:
-- jdk_switcher use oraclejdk8
-
-# directly download the latest and cache-able version of Gradle
-before_script:
+  - gem install mdl
   # download gradle as a zip file
   - wget https://services.gradle.org/distributions/gradle-4.6-bin.zip
   - unzip -d $HOME gradle-4.6-bin.zip
@@ -24,10 +20,11 @@ before_script:
   - rm -rf gradle-4.6-bin.zip
   # add gradle bin to path at the beginning to ensure it overwrites old gradle
   - export PATH="$HOME/gradle-4.6/bin:$PATH"
-
-# install the Markdown linting program called mdl
-before_install:
-- gem install mdl
+  # switch to Python 3.6.3 globally, install python dependencies
+  - pyenv global 3.6.3
+  - pip install --upgrade pip
+  - pip install proselint
+  - pip install pipenv
 
 # cache to improve build speed
 before_cache:
@@ -39,9 +36,13 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-# run checks on Java code through gradle and GatorGrader
-# run checks on Markdown writing through mdl through GatorGrader
+# run checks on the README file with mdl and proselint
+# run checks on a student's Java code through gradle and GatorGrader
+# run checks on a student's Markdown writing through GatorGrader
 script:
+  # lint the assignment's documentation
+  - mdl README.md
+  - proselint README.md
   # Java: see build.gradle
   - gradle --version
   - gradle clean check
