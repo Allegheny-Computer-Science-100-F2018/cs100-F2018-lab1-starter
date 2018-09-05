@@ -12,7 +12,8 @@ src/main:
             --fragment "new Date(" --count 1
 writing/reflection.md:
     mdl
+    proselint
     --paragraphs 1
     --words 200
---commits 16
+--commits 21
 --command "gradle -q --console plain run" --count 4
