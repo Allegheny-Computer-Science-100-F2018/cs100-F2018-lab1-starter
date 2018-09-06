@@ -25,6 +25,8 @@ before_install:
   - pip install --upgrade pip
   - pip install proselint
   - pip install pipenv
+  # do not allow Travis to use standard error for debugging purposes
+  - unset _JAVA_OPTIONS
 
 # cache to improve build speed
 before_cache:
@@ -36,17 +38,23 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
+# delete any cached version of GatorGrader and require a fresh installation
+before_script:
+  - rm -rf $HOME/.local/share/gatorgrader
+
 # run checks on the README file with mdl and proselint
 # run checks on a student's Java code through gradle and GatorGrader
 # run checks on a student's Markdown writing through GatorGrader
+# note: "gradle grade" will install GatorGrader and run all checks
 script:
   # lint the assignment's documentation
   - mdl README.md
   - proselint README.md
   # Java: see build.gradle
   - gradle --version
-  - gradle clean check
+  - gradle clean
+  - gradle check
   - gradle build
   - gradle run
-    # GatorGrader: see config/gatorgrader.yml
+  # GatorGrader: see config/gatorgrader.yml
   - gradle grade
