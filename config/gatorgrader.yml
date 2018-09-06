@@ -1,5 +1,5 @@
 ---
-name: cmpsc-111-fall-2018-lab1
+name: cmpsc-100-fall-2018-lab1
 break: true
 indent: 4
 ---
@@ -21,7 +21,7 @@ writing/reflection.md:
     --paragraphs 1 --exact
     --words 200
 # --> check the number of commits beyond a threshold
---commits 26
+--commits 27
 # --> check that the program executes and produces 4 lines of output
 --command "gradle -q --console plain run" --executes
 --command "gradle -q --console plain run" --count 4 --exact
