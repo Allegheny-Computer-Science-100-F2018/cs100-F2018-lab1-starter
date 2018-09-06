@@ -20,10 +20,10 @@ PROBLEMS?
 
 -->
 
-# cs100-F2018-lab1-starter
+# cs100-F2018-lab1-solution
 
 Designed for use with [GitHub Classroom](https://classroom.github.com/), this
-repository contains the starter for Laboratory 1 in Computer Science 100.
+repository contains the solution for Laboratory 1 in Computer Science 100.
 Since the Travis builds for this repository will initially fail (as evidenced by
 a red &#x2717; appearing in the commit logs instead of a green &#x2714;), the
 programmer is responsible for completing all of the steps needed to satisfy the
@@ -138,22 +138,24 @@ BUILD SUCCESSFUL in 0s
 
 ## Checks
 
-Your submission must pass the following checks:
+In addition to meeting all of the requirements outlined in the assignment sheet,
+your submission must pass the following checks:
 
 - labone/DisplayOutput.java:
-  - Feature two single-line comments
-  - Feature two multiple-line comments
-  - Contain four uses of a `println(` statement
-  - Contain one use of a `new Date(` statement
-  - Produce four lines of output in the terminal
+  - Features at least two single-line comments
+  - Features at least two multiple-line comments
+  - Contains exactly four uses of a `println(` statement
+  - Contains exactly one use of a `new Date(` statement
+  - Runs correctly without crashing or producing an error
+  - Produces exactly four lines of output in the terminal
 
 - writing/reflection.md:
-  - Passes the checks done by the Markdown linting tool
-  - Contains one contiguous paragraph of formatted text
-  - Contains one paragraph containing at least 200 words
+  - Passes the checks performed by the Markdown linting tool
+  - Contains exactly one contiguous paragraph of formatted text
+  - The contiguous paragraph contains at least 200 words
 
 - GitHub repository:
-  - Contains five commits beyond the starting number
+  - Contains five commits beyond the repository's starting number of commits
 
 ## Updates
 
