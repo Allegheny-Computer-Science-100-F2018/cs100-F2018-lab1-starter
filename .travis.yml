@@ -57,4 +57,4 @@ script:
   - gradle build
   - gradle run
   # GatorGrader: see config/gatorgrader.yml
-  - gradle grade
+  - gradle grade -x build
